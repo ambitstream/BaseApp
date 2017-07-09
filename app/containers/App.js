@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { Router, Scene } from 'react-native-router-flux';
+
+// Screens
+import Splash from '../screens/splash';
+import About from '../screens/about';
 
 export default class App extends Component {
-
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Welcome to KievBase App!</Text>
-      </View>
-    );
+      <Router>
+        <Scene key="root">
+
+          <Scene
+            initial={true}
+            hideNavBar={true}
+            key="splash"
+            component={Splash}
+            title="Splash" />
+          <Scene
+            hideNavBar={false}
+            key="about"
+            component={About}
+            title="About" />
+
+        </Scene>
+      </Router>
+    )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
-AppRegistry.registerComponent('App', () => App);
