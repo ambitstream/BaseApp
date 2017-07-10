@@ -13,8 +13,8 @@ export default class ScreenComponent extends Component {
 
         <Text>Welcome to KievBase App!</Text>
 
-        <TouchableOpacity onPress={NavActions.about}>
-          <Text style={AppStyles.typo.link}>More info</Text>
+        <TouchableOpacity onPress={NavActions.tabbar}>
+          <Text style={AppStyles.typo.link}>Get started</Text>
         </TouchableOpacity>
 
       </View>

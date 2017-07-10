@@ -4,6 +4,10 @@ const Colors = {
     light: '#7C7C7C', //Lighter text
     extra: '#1579fb', //Colored text
   },
+  background: {
+    primary: '#eeeeee',
+    light: '#dddddd'
+  }
 }
 
 export default Colors;

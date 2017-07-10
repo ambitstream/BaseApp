@@ -16,6 +16,14 @@ const AppStyles = {
       color: Colors.basic.extra
     }
   },
+  tabBar: {
+    holder: {
+      backgroundColor: Colors.background.primary,
+    },
+    selectedItem: {
+      backgroundColor: Colors.background.light,
+    },
+  },
   //Screens
   splash: {
     image: {
