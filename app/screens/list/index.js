@@ -1,13 +1,33 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, ListView } from 'react-native';
 import { Actions as NavActions } from 'react-native-router-flux';
 
 //Styles
 import { AppStyles } from '../../theme';
 import data from '../../data/bases'; 
 
-export default class ScreenComponent extends Component {
+class BaseItem extends Component {
+	
+	render() { 
+		return (
+			<Text>
+				{this.props.title}
+			</Text>
+		)
+	}
+	
+}
 
+export default class ScreenComponent extends Component {
+	
+	constructor() {
+		super();
+		const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+		this.state = {
+			dataSource: ds.cloneWithRows(Object.keys(data)),
+		};
+	}
+  
 	render() {
 		return (
 			<View style={AppStyles.markup.container}>
@@ -22,15 +42,10 @@ export default class ScreenComponent extends Component {
 							<Text style={AppStyles.typo.link}>Base #1</Text>
 						</TouchableOpacity>
 						
-						{Object.keys(data).map(id => {
-							return(
-								<Text key={'base_' + id}> 
-									{data[id].title} 
-								</Text>
-							)
-						})}
-						
-						
+						<ListView
+							dataSource={this.state.dataSource}
+							renderRow={(rowData) => <BaseItem {...data[rowData]} /> }
+						/>
 						
 					</View>
 				}
