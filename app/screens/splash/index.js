@@ -45,7 +45,7 @@ export default class ScreenComponent extends Component {
 				
 				<Anim>
 					<TouchableWithoutFeedback onPress={NavActions.tabbar}>
-						<Image source={require('../../assets/images/logo.png')} style={{width:266, height: 34, marginBottom: 10, marginTop: 50}} />
+						<Image source={Images.logo} style={{width:266, height: 34, marginBottom: 10, marginTop: 50}} />
 					</TouchableWithoutFeedback>
 				</Anim>
 				
