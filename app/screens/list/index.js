@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, ListView, Image } from 'react-native';
 import { Actions as NavActions } from 'react-native-router-flux';
+import StarsRating from '../../components/StarsRating';
 
 //Styles
 import { AppStyles, Images, Metrics } from '../../theme';
@@ -17,9 +18,7 @@ class BaseItem extends Component {
 				<View style={{flexDirection: 'row', flex: 1, height: 70, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginTop: 5, marginBottom: 5}}>
 
 					<View style={{width:70, height:60}}>
-						<Text>
-							*****
-						</Text>
+						<StarsRating rating={this.props.rating} />
 						<View style={{flexDirection: 'row'}}>
 							{this.props.comments_count ? <Image style={{width:20, height:20, marginRight: 4}} source={Images.comments} /> : <Text/> }
 							<Text style={{fontWeight: 'bold'}}>{this.props.comments_count}</Text>
