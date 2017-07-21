@@ -16,7 +16,8 @@ export default data =
       'https://base.kiev.ua/upload/images/14_3.jpg',
       'https://base.kiev.ua/upload/images/14_4.jpg',
       'https://base.kiev.ua/upload/images/14_5.jpg'
-    ]
+    ],
+    comments_count: 11
   },
   '18': {
     id: '18',
@@ -28,7 +29,8 @@ export default data =
     price: '35 грн',
     posX: '30.5019',
     posY: '50.4693',
-    images: []
+    images: [],
+    comments_count: 2
   },
   '19': {
     id: '19',
@@ -43,7 +45,8 @@ export default data =
     images: [
       'https://base.kiev.ua/upload/images/19_1.jpg',
       'https://base.kiev.ua/upload/images/19_2.jpg'
-    ]
+    ],
+    comments_count:1
   },
   '20': {
     id: '20',
