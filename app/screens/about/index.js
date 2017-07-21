@@ -9,7 +9,9 @@ export default class ScreenComponent extends Component {
   render() {
     return (
       <View style={AppStyles.markup.container}>
-        <Text>This is about page</Text>
+				<View style={AppStyles.markup.commonPadding}>
+	        <Text>This is about page</Text>
+				</View>
       </View>
     );
   }

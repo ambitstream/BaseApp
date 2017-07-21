@@ -10,7 +10,7 @@ export default class ScreenComponent extends Component {
   render() {
     return (
       <View style={AppStyles.markup.container}>
-        <View>
+        <View style={AppStyles.markup.commonPadding}>
           <Text>This is list of markers:</Text>
           <TouchableOpacity
             onPress={()=>NavActions.singleMarker({ id: 1 })}>

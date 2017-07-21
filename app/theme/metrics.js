@@ -7,6 +7,8 @@ const Metrics = {
   smallMargin: 5,
   screenWidth: width < height ? width : height,
   screenHeight: width < height ? height : width,
+	headerHeight: 64,
+	footerHeight: 50,
 }
 
 export default Metrics;

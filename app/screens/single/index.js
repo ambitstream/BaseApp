@@ -8,7 +8,9 @@ export default class ScreenComponent extends Component {
   render() {
     return (
       <View style={AppStyles.markup.container}>
-        <Text>This is base #{this.props.id}</Text>
+				<View style={AppStyles.markup.commonPadding}>
+	        <Text>This is base #{this.props.id}</Text>
+				</View>
       </View>
     );
   }

@@ -4,12 +4,23 @@ import { Platform } from 'react-native';
 
 const AppStyles = {
   markup: {
-    container: {
+		containerSplash: {
       flex: 1,
       backgroundColor: 'transparent',
       alignItems: 'center',
       justifyContent: 'center',
     },
+    container: {
+      flex: 1,
+      backgroundColor: 'transparent',
+      alignItems: 'stretch',
+      justifyContent: 'flex-start',
+			paddingTop: Metrics.headerHeight,
+			paddingBottom: Metrics.footerHeight,
+    },
+		commonPadding: {
+			padding: Metrics.baseMargin
+		},
   },
   typo: {
     link: {
