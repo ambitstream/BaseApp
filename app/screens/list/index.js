@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Text, View, ListView } from 'react-native';
 
 //Styles
-import { AppStyles } from '../../theme';
+import { AppStyles} from '../../theme';
 
-//Data
+// Data
 import data from '../../data/bases';
 
 //Components
