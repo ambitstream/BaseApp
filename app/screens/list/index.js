@@ -18,7 +18,7 @@ class BaseItem extends Component {
 				<View style={{flexDirection: 'row', flex: 1, height: 70, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginTop: 5, marginBottom: 5}}>
 
 					<View style={{width:70, height:60}}>
-						<StarsRating rating={this.props.rating} />
+						<StarsRating rating={this.props.rating} starSize={12} />
 						<View style={{flexDirection: 'row'}}>
 							{this.props.comments_count ? <Image style={{width:20, height:20, marginRight: 4}} source={Images.comments} /> : <Text/> }
 							<Text style={{fontWeight: 'bold'}}>{this.props.comments_count}</Text>
