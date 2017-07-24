@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
 import PropTypes from 'prop-types';
-import Reactotron from 'reactotron-react-native';
 
 //Styles
 import { Colors } from '../theme';
