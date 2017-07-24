@@ -1,39 +1,11 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text } from 'react-native';
 import { Router, Scene, Actions as NavActions } from 'react-native-router-flux';
 import { connect, Provider } from 'react-redux'
-import { createReactotronStoreEnhancer } from 'reactotron-redux';
-import Reactotron from 'reactotron-react-native';
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 
 import Store from '../config/store';
 
 const RouterWithRedux = connect()(Router);
-import * as reducers from '../reducers';
-// const store = Store;
-
-
-// create store...
-const enhancers = [];
-const middlewares = [];
-const storeData = {};
-
-/* ------------- Reactotron Enhancer ------------- */
-if (__DEV__) { // only bring in Reactotron in dev mode
-  const reactotronEnhancer = createReactotronStoreEnhancer(console.tron, {
-    ignore: []
-  });
-  enhancers.push(reactotronEnhancer);
-  // sagaMonitor = console.tron.createSagaMonitor();
-}
-
-
-enhancers.push(applyMiddleware(...middlewares));
-
-const reducer = combineReducers(reducers);
-
-const store = compose( applyMiddleware(...middlewares) )(createStore)(reducer);
-// const store = createStore(reducer, storeData, compose(...enhancers));
+const store = Store;
 
 // Screens
 import Splash from '../screens/splash';
