@@ -10,6 +10,7 @@ const Images = {
 	  map: require('../assets/icons/map.png'),
 	  user: require('../assets/icons/user.png'),
 	  list: require('../assets/icons/list.png'),
+	  search: require('../assets/icons/search.png'),
   }
   //splashBackground: require('../assets/images/splash-background.png'),
 }

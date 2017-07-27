@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Text, View, ListView, TextInput } from 'react-native';
+import { Text, View, ListView, TextInput, Image } from 'react-native';
 import Reactotron from 'reactotron-react-native';
 
 //Styles
-import { AppStyles} from '../../theme';
+import { AppStyles, Images } from '../../theme';
 
 // Data
 import data from '../../data/bases';
@@ -35,7 +35,10 @@ export default class ScreenComponent extends Component {
 		return (
 			<View style={AppStyles.markup.container}>
 			
-				<TextInput style={{height: 30}} onChangeText={this.searchChange.bind(this)} placeholder="Поиск..."/>
+				<View style={{flexDirection: 'row', paddingTop: 6, paddingBottom: 6, borderBottomColor: '#eee', borderBottomWidth: 2}}>
+					<Image source={Images.icons.search} style={{width: 18, height: 18, marginLeft: 10, marginRight: 7}} />
+					<TextInput style={{flex:1, height: 20, fontSize: 14}} onChangeText={this.searchChange.bind(this)} placeholder="Поиск..."/>
+				</View>
 				
 				{this.props.isFavorites
 					? <View style={AppStyles.markup.commonPadding}>
