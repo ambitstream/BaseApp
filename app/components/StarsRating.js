@@ -34,7 +34,8 @@ export default class StarsRating extends Component {
 		
 		return (
 			<View style={{flex: 1, flexDirection: 'row'}}>
-				{stars.map(star_type => <Image 
+				{stars.map((star_type, i) => <Image 
+					key={'star_' + i}
 					source={Images.icons[star_type]} 
 					style={{width: this.starSize, height: this.starSize}}
 				/> )}
