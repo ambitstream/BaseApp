@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { Text, TouchableWithoutFeedback, View, Image, Animated } from 'react-native';
 import { Actions as NavActions } from 'react-native-router-flux';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import Reactotron from 'reactotron-react-native';
 
 //Styles
 import { AppStyles, Images } from '../../theme';
+
+//Actions
+import * as actionCreators from '../../actions/splash';
 
 class Anim extends React.Component {
 	state = {
@@ -34,7 +40,17 @@ class Anim extends React.Component {
 	}
 }
 
-export default class ScreenComponent extends Component {
+class ScreenComponent extends Component {
+
+	componentDidMount() {
+
+		Reactotron.log( this.props.state )
+
+		this.props.actions.storeBasesData({
+			hello: 'world'
+		});
+	}
+
 	render() {
 		return (
 			<TouchableWithoutFeedback onPress={NavActions.tabbar}>
@@ -57,3 +73,12 @@ export default class ScreenComponent extends Component {
 		);
 	}
 }
+
+export default connect(
+	(store) => ({
+		state: store
+	}),
+	(dispatch) => ({
+		actions: bindActionCreators(actionCreators, dispatch)
+	})
+)(ScreenComponent);

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Router, Scene, Actions as NavActions } from 'react-native-router-flux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { connect, Provider } from 'react-redux'
+import thunk from 'redux-thunk';
 
-import Store from '../config/store';
+import * as reducers from '../reducers';
 
 const RouterWithRedux = connect()(Router);
-const store = Store;
 
 // Screens
 import Splash from '../screens/splash';
@@ -20,6 +21,12 @@ import TabIcon from '../components/TabIcon';
 // Styles
 import { AppStyles } from '../theme';
 
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+const reducer = combineReducers(reducers);
+const store = createStoreWithMiddleware(reducer);
+
+import '../config/reactotron';
+
 // Disable back button config
 const disableBackButton = {
   hideBackImage: true,
@@ -27,70 +34,79 @@ const disableBackButton = {
 }
 
 export default class App extends Component {
-  render() {
-    return (
+	render() {
+		return (
 			<Provider store={store}>
-        <RouterWithRedux>
-	        <Scene key='root' hideNavBar hideTabBar>
+				<RouterWithRedux>
+					<Scene key='root' hideNavBar hideTabBar>
 
-	          <Scene
-	            initial={false}
-	            hideNavBar={true}
-	            key='splash'
-	            component={Splash}
-	            title='Splash' />
-
-	          <Scene
-	            key='tabbar'
-	            gestureEnabled={false}
+						<Scene
 							initial={true}
-	            tabs
-	            tabBarSelectedItemStyle={AppStyles.tabBar.selectedItem}
-	            tabBarStyle={AppStyles.tabBar.holder}>
+							hideNavBar={true}
+							key='splash'
+							component={Splash}
+							title='Splash' />
 
-	            <Scene key='map' title='Map' tabBarLabel='Map' icon={TabIcon}>
-	              <Scene
-	                key='markerList'
-	                component={Map}
-	                title='Map'
-	                {...disableBackButton} />
-	              <Scene
-	                key='singleMarker'
-	                component={Single}
-	                title='Single base'
-	                back />
-	            </Scene>
-	            <Scene key='bases' title='List' tabBarLabel='List' icon={TabIcon}>
-	              <Scene
-	                key='list'
-	                component={List}
-	                title='List'
-	                {...disableBackButton} />
-	              <Scene
-	                key='single'
-	                component={Single}
-	                title='Single base'
-	                back />
-	            </Scene>
-	            <Scene
-	              key='favorites'
-	              component={List}
-	              title='Favorites'
-	              icon={TabIcon}
-	              isFavorites={true}
-	              {...disableBackButton} />
-	            <Scene
-								initial={true}
-	              key='about'
-	              component={About}
-	              title='About'
-	              icon={TabIcon}
-	              {...disableBackButton} />
-	          </Scene>
+						<Scene
+							key='tabbar'
+							gestureEnabled={false}
+							tabs
+							tabBarSelectedItemStyle={AppStyles.tabBar.selectedItem}
+							tabBarStyle={AppStyles.tabBar.holder}>
 
-	        </Scene>
-	      </RouterWithRedux>
+							<Scene key='map' title='Map' tabBarLabel='Map' icon={TabIcon}>
+
+								<Scene
+									key='markerList'
+									component={Map}
+									title='Map'
+									{...disableBackButton} />
+
+								<Scene
+									key='singleMarker'
+									component={Single}
+									title='Single base'
+									back />
+
+							</Scene>
+
+							<Scene key='bases' title='List' tabBarLabel='List' icon={TabIcon}>
+
+								<Scene
+									key='list'
+									component={List}
+									title='List'
+									{...disableBackButton} />
+
+								<Scene
+									key='single'
+									component={Single}
+									title='Single base'
+									back />
+
+							</Scene>
+
+							<Scene
+								key='favorites'
+								component={List}
+								title='Favorites'
+								icon={TabIcon}
+								isFavorites={true}
+								{...disableBackButton} />
+
+							<Scene
+								key='about'
+								component={About}
+								title='About'
+								icon={TabIcon}
+								{...disableBackButton} />
+
+						</Scene>
+
+					</Scene>
+
+				</RouterWithRedux>
 			</Provider>
-    )
-  }
+		)
+	}
 }
