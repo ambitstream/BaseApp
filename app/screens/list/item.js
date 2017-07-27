@@ -14,17 +14,15 @@ export default class BaseItem extends Component {
 				style={{flexDirection: 'row', flex: 1, height: 70, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginTop: 5, marginBottom: 5}}
 				onPress={()=>NavActions.single({ id: this.props.id })}>
 
-				<View style={{width: 60, height: 60, backgroundColor: 'skyblue'}}>
+				<View style={{width: 60, height: 60, backgroundColor: 'skyblue', marginRight: 7}}>
 					<Image style={{flex: 1 }} source={{ uri: this.props.images[0] }}></Image>
 				</View>
-				
-				
 
 				<View style={{flex: 2}}>
-					<Text>
+					<Text style={{fontWeight: 'bold'}}>
 						{this.props.title}
 					</Text>
-					<Text style={{flex: 2, fontSize: 11}}>
+					<Text style={{flex: 2, fontSize: 11, marginTop: 5}}>
 						{this.props.address}
 					</Text>
 				</View>
