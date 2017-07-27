@@ -41,11 +41,11 @@ export default class App extends Component {
             tabBarSelectedItemStyle={AppStyles.tabBar.selectedItem}
             tabBarStyle={AppStyles.tabBar.holder}>
 
-            <Scene key='map' title='Map' tabBarLabel='Map' icon={TabIcon}>
+            <Scene key='map' title='Карта' tabBarLabel='Карта' icon={TabIcon} iconName='map'>
               <Scene
                 key='markerList'
                 component={Map}
-                title='Map'
+                title='Карта репетиционных баз'
                 {...disableBackButton} />
               <Scene
                 key='singleMarker'
@@ -53,11 +53,11 @@ export default class App extends Component {
                 title='Single base'
                 back />
             </Scene>
-            <Scene key='bases' title='List' tabBarLabel='List' icon={TabIcon}>
+            <Scene key='bases' title='Список' tabBarLabel='Список' icon={TabIcon} iconName='list'>
               <Scene
                 key='list'
                 component={List}
-                title='List'
+                title='Список баз'
                 {...disableBackButton} />
               <Scene
                 key='single'
@@ -66,17 +66,11 @@ export default class App extends Component {
                 back />
             </Scene>
             <Scene
-              key='favorites'
-              component={List}
-              title='Favorites'
-              icon={TabIcon}
-              isFavorites={true}
-              {...disableBackButton} />
-            <Scene
               key='about'
               component={About}
-              title='About'
+              title='О проекте'
               icon={TabIcon}
+              iconName='user'
               {...disableBackButton} />
           </Scene>
 
