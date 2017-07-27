@@ -14,15 +14,11 @@ export default class BaseItem extends Component {
 				style={{flexDirection: 'row', flex: 1, height: 70, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginTop: 5, marginBottom: 5}}
 				onPress={()=>NavActions.single({ id: this.props.id })}>
 
-				<View style={{width:70, height:60}}>
-				
-					<StarsRating rating={this.props.rating} starSize={12} />
-
-					<View style={{flexDirection: 'row'}}>
-						{this.props.comments_count ? <Image style={{width:20, height:20, marginRight: 4}} source={Images.comments} /> : <Text/> }
-						<Text style={{fontWeight: 'bold'}}>{this.props.comments_count}</Text>
-					</View>
+				<View style={{width: 60, height: 60, backgroundColor: 'skyblue'}}>
+					<Image style={{flex: 1 }} source={{ uri: this.props.images[0] }}></Image>
 				</View>
+				
+				
 
 				<View style={{flex: 2}}>
 					<Text>
@@ -32,9 +28,15 @@ export default class BaseItem extends Component {
 						{this.props.address}
 					</Text>
 				</View>
+				
+				<View style={{width:70, height:60}}>
+				
+					<StarsRating rating={this.props.rating} starSize={12} />
 
-				<View style={{width: 100, height: 60, backgroundColor: 'skyblue'}}>
-					<Image style={{flex: 1 }} source={{ uri: this.props.images[0] }}></Image>
+					<View style={{flexDirection: 'row'}}>
+						{this.props.comments_count ? <Image style={{width:20, height:20, marginRight: 4}} source={Images.comments} /> : <Text/> }
+						<Text style={{fontWeight: 'bold'}}>{this.props.comments_count}</Text>
+					</View>
 				</View>
 
 			</TouchableOpacity>
