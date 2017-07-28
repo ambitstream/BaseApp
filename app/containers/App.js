@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Router, Scene, Actions as NavActions } from 'react-native-router-flux';
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { connect, Provider } from 'react-redux'
-import thunk from 'redux-thunk';
+import { createStore, compose, combineReducers } from 'redux';
+import { createReactotronStoreEnhancer } from 'reactotron-redux';
+import { connect, Provider } from 'react-redux';
 
 import * as reducers from '../reducers';
 
@@ -21,16 +21,18 @@ import TabIcon from '../components/TabIcon';
 // Styles
 import { AppStyles } from '../theme';
 
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
-const reducer = combineReducers(reducers);
-const store = createStoreWithMiddleware(reducer);
-
 import '../config/reactotron';
+
+const reducer = combineReducers(reducers);
+const reactotronEnhancer = createReactotronStoreEnhancer(console.tron, {
+	ignore: [],
+});
+const store = createStore(reducer, {}, compose(...reactotronEnhancer));
 
 // Disable back button config
 const disableBackButton = {
-  hideBackImage: true,
-  onBack: ()=>null
+	hideBackImage: true,
+	onBack: ()=>null
 }
 
 export default class App extends Component {
