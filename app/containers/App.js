@@ -23,11 +23,13 @@ import { AppStyles } from '../theme';
 
 import '../config/reactotron';
 
+let enhancers = [];
 const reducer = combineReducers(reducers);
 const reactotronEnhancer = createReactotronStoreEnhancer(console.tron, {
 	ignore: [],
 });
-const store = createStore(reducer, {}, compose(...reactotronEnhancer));
+enhancers.push(reactotronEnhancer);
+const store = createStore(reducer, {}, compose(...enhancers));
 
 // Disable back button config
 const disableBackButton = {

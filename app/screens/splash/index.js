@@ -3,7 +3,6 @@ import { Text, TouchableWithoutFeedback, View, Image, Animated } from 'react-nat
 import { Actions as NavActions } from 'react-native-router-flux';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Reactotron from 'reactotron-react-native';
 
 //Styles
 import { AppStyles, Images } from '../../theme';
@@ -43,11 +42,22 @@ class Anim extends React.Component {
 class ScreenComponent extends Component {
 
 	componentDidMount() {
+		this.fetchData().then( (response, error) => {
+			this.props.actions.storeBasesData(response);
+			NavActions.tabbar();
+		});
+	}
 
-		Reactotron.log( this.props.state )
+	fetchData() {
+		return new Promise( (resolve, reject) =>{
+			let xhr = new XMLHttpRequest;
+			xhr.open('GET', 'https://api.base.kiev.ua/v2/bases-list/');
+			xhr.responseType = 'json';
+			xhr.send();
 
-		this.props.actions.storeBasesData({
-			hello: 'world'
+			xhr.addEventListener('load', ()=>{
+				resolve(xhr.response);
+			});
 		});
 	}
 
