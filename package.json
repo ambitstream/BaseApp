@@ -22,7 +22,7 @@
     "jest": "19.0.2",
     "react-test-renderer": "15.4.2",
     "reactotron-apisauce": "^1.12.0",
-    "reactotron-react-native": "^1.12.0",
+    "reactotron-react-native": "^1.12.1",
     "reactotron-redux": "^1.12.0"
   },
   "jest": {
