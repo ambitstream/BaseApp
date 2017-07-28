@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, TouchableWithoutFeedback, View, Image, Animated } from 'react-native';
+import { Text, TouchableWithoutFeedback,
+	View, Image, Animated, ActivityIndicator } from 'react-native';
 import { Actions as NavActions } from 'react-native-router-flux';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -44,7 +45,7 @@ class ScreenComponent extends Component {
 	componentDidMount() {
 		this.fetchData().then( (response, error) => {
 			this.props.actions.storeBasesData(response);
-			NavActions.tabbar();
+			// NavActions.tabbar();
 		});
 	}
 
@@ -70,8 +71,10 @@ class ScreenComponent extends Component {
 						<Image source={require('../../assets/images/splash-background.jpg')} style={{flex: 1, width: null, height: null, resizeMode:'stretch'}} />
 					</View>
 
+					<ActivityIndicator />
+
 					<Anim>
-						<Image source={Images.logo} style={{width:266, height: 34, marginBottom: 10, marginTop: 50}} />
+						<Image source={Images.logo} style={{width:266, height: 34, marginBottom: 10, marginTop: 20}} />
 					</Anim>
 
 					<Text style={{color: '#fff'}}>
