@@ -45,7 +45,7 @@ class ScreenComponent extends Component {
 	componentDidMount() {
 		this.fetchData().then( (response, error) => {
 			this.props.actions.storeBasesData(response);
-			// NavActions.tabbar();
+			NavActions.tabbar();
 		});
 	}
 
