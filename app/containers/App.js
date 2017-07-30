@@ -62,7 +62,7 @@ export default class App extends Component {
               <Scene
                 key='single'
                 component={Single}
-                title='Single base'
+                title='База'
                 back />
             </Scene>
             <Scene
