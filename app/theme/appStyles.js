@@ -52,6 +52,11 @@ const AppStyles = {
     image: {
       marginVertical: Metrics.baseMargin,
     }
+  },
+  
+  details: {
+    sliderHeight: 200,
+    starSize: 32,
   }
 
 }
