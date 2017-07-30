@@ -25,6 +25,10 @@ const AppStyles = {
   typo: {
     link: {
       color: Colors.basic.extra
+    },
+    h1: {
+	  fontSize: 20,
+	  fontWeight: 'bold',
     }
   },
   tabBar: {
@@ -56,7 +60,27 @@ const AppStyles = {
   
   details: {
     sliderHeight: 200,
-    starSize: 32,
+    starSize: 24,
+    grayCard: {
+	  backgroundColor: '#efefef',
+	  borderTopWidth: 2,
+	  borderTopColor: '#ddd',
+	  borderBottomWidth: 2,
+	  borderBottomColor: '#ddd',
+    },
+    descriptionRow: {
+	  flex: 1,
+	  flexDirection: 'row',
+	  marginTop: 5,
+	  marginBottom: 5,
+    },
+    descriptionLeft: {
+	  width: 100,
+	  fontWeight: 'bold'
+    },
+    descriptionRight: {
+	  flex: 1,
+    },
   }
 
 }

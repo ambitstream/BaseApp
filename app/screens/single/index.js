@@ -44,25 +44,28 @@ export default class ScreenComponent extends Component {
 					</Swiper>
 					
 					<View style={AppStyles.markup.commonPadding}>
+						<Text style={[AppStyles.typo.h1, {marginBottom: 5}]}>
+							{this.state.data.title}
+						</Text>
+						
 						<StarsRating rating={data[this.props.id].rating} starSize={AppStyles.details.starSize} /> 
-						<Text>{this.state.data.title}</Text>
 					</View>
 					
-					<View style={AppStyles.markup.commonPadding}>
+					<View style={[AppStyles.markup.commonPadding, AppStyles.details.grayCard]}>
 
-						<View>
-							<Text>Адрес: </Text>
-							<Text>{this.state.data.address}</Text>
+						<View style={AppStyles.details.descriptionRow}>
+							<Text style={AppStyles.details.descriptionLeft}>Адрес: </Text>
+							<Text style={AppStyles.details.descriptionRight}>{this.state.data.address}</Text>
 						</View>
 						
-						<View>
-							<Text>Контакты: </Text>
-							<Text>{this.state.data.contacts}</Text>
+						<View style={AppStyles.details.descriptionRow}>
+							<Text style={AppStyles.details.descriptionLeft}>Контакты: </Text>
+							<Text style={AppStyles.details.descriptionRight}>{this.state.data.contacts}</Text>
 						</View>
 						
-						<View>
-							<Text>Цена: </Text>
-							<Text>{this.state.data.price}</Text>
+						<View style={AppStyles.details.descriptionRow}>
+							<Text style={AppStyles.details.descriptionLeft}>Цена: </Text>
+							<Text style={AppStyles.details.descriptionRight}>{this.state.data.price}</Text>
 						</View>
 						
 					</View>
