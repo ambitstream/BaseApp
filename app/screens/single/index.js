@@ -3,6 +3,7 @@ import { Text, View, ScrollView, Image, Dimensions } from 'react-native';
 import StarsRating from '../../components/StarsRating';
 import Reactotron from 'reactotron-react-native';
 import Swiper from 'react-native-swiper';
+import MapView from 'react-native-maps';
 
 // Data
 import data from '../../data/bases';
@@ -49,7 +50,7 @@ export default class ScreenComponent extends Component {
 						</Text>
 						
 						<StarsRating rating={data[this.props.id].rating} starSize={AppStyles.details.starSize} /> 
-					</View>
+					</View>										
 					
 					<View style={[AppStyles.markup.commonPadding, AppStyles.details.grayCard]}>
 
@@ -75,7 +76,19 @@ export default class ScreenComponent extends Component {
 					</View>
 					
 					<View>
-						<Text>...Карта...</Text>
+						<MapView style={{width: width, height: 200}}
+							initialRegion={{
+							latitude: parseFloat(data[this.props.id].posY),
+							longitude: parseFloat(data[this.props.id].posX),
+							latitudeDelta: 0.0222,
+							longitudeDelta: 0.0061,
+							}}
+						>
+							<MapView.Marker
+								coordinate={{latitude: parseFloat(data[this.props.id].posY), longitude: parseFloat(data[this.props.id].posX)}}
+								title={data[this.props.id].title}
+							/>
+						</MapView>
 					</View>
 					
 				</ScrollView>
