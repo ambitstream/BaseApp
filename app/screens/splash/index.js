@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, TouchableWithoutFeedback,
+import { AsyncStorage, Text, TouchableWithoutFeedback,
 	View, Image, Animated, ActivityIndicator } from 'react-native';
 import { Actions as NavActions } from 'react-native-router-flux';
 import { bindActionCreators } from 'redux';
@@ -45,9 +45,22 @@ class Anim extends React.Component {
 class ScreenComponent extends Component {
 
 	componentDidMount() {
+		let { storeBasesData } = this.props.actions;
+
 		this.fetchData(apiUrl.bases).then( (response, error) => {
-			this.props.actions.storeBasesData(response);
+			AsyncStorage.setItem('bases', JSON.stringify(response));
+			storeBasesData(response);
 			NavActions.tabbar();
+		}, e => {
+			AsyncStorage.getItem('bases').then( localData => {
+				if (localData) {
+					storeBasesData(JSON.parse(localData));
+					alert('Нет подключения к интернету, используем закешированные данные!');
+					NavActions.tabbar();
+				} else {
+					alert('Нет подключения к интернету.');
+				}
+			}).done();
 		});
 	}
 
@@ -58,7 +71,7 @@ class ScreenComponent extends Component {
 			xhr.responseType = 'json';
 			xhr.timeout = 10000;
 			xhr.onload = ()=>resolve(xhr.response);
-			xhr.ontimeout = ()=>alert('Нет подключения к интернету');
+			xhr.ontimeout = (e)=>reject(e);
 			xhr.send();
 		});
 	}
