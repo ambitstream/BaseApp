@@ -1,4 +1,4 @@
 const apiUrl = {
-	bases: 'https://api.base.kiev.ua/v2/bases-list/',
+	bases: 'https://api.base.kiev.ua/v1/bases-list-full/',
 }
 export default apiUrl;
