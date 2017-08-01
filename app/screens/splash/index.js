@@ -11,6 +11,8 @@ import { AppStyles, Images } from '../../theme';
 //Actions
 import * as actionCreators from '../../actions/splash';
 
+import apiUrl from '../../config/api.js';
+
 class Anim extends React.Component {
 	state = {
 		fadeAnim: new Animated.Value(0),
@@ -43,22 +45,21 @@ class Anim extends React.Component {
 class ScreenComponent extends Component {
 
 	componentDidMount() {
-		this.fetchData().then( (response, error) => {
+		this.fetchData(apiUrl.bases).then( (response, error) => {
 			this.props.actions.storeBasesData(response);
 			NavActions.tabbar();
 		});
 	}
 
-	fetchData() {
+	fetchData(url) {
 		return new Promise( (resolve, reject) =>{
 			let xhr = new XMLHttpRequest;
-			xhr.open('GET', 'https://api.base.kiev.ua/v2/bases-list/');
+			xhr.open('GET', url);
 			xhr.responseType = 'json';
+			xhr.timeout = 10000;
+			xhr.onload = ()=>resolve(xhr.response);
+			xhr.ontimeout = ()=>alert('Нет подключения к интернету');
 			xhr.send();
-
-			xhr.addEventListener('load', ()=>{
-				resolve(xhr.response);
-			});
 		});
 	}
 
