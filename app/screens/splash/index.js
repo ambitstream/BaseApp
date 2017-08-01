@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
-import { Text, TouchableWithoutFeedback, View, Image, Animated } from 'react-native';
+import { AsyncStorage, Text, TouchableWithoutFeedback,
+	View, Image, Animated, ActivityIndicator } from 'react-native';
 import { Actions as NavActions } from 'react-native-router-flux';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 //Styles
 import { AppStyles, Images } from '../../theme';
+
+//Actions
+import * as actionCreators from '../../actions/splash';
+
+import apiUrl from '../../config/api.js';
 
 class Anim extends React.Component {
 	state = {
@@ -34,26 +42,68 @@ class Anim extends React.Component {
 	}
 }
 
-export default class ScreenComponent extends Component {
+class ScreenComponent extends Component {
+
+	componentDidMount() {
+		let { storeBasesData } = this.props.actions;
+
+		this.fetchData(apiUrl.bases).then( (response, error) => {
+			AsyncStorage.setItem('bases', JSON.stringify(response));
+			storeBasesData(response);
+			NavActions.tabbar();
+		}, e => {
+			AsyncStorage.getItem('bases').then( localData => {
+				if (localData) {
+					storeBasesData(JSON.parse(localData));
+					alert('Нет подключения к интернету, используем закешированные данные!');
+					NavActions.tabbar();
+				} else {
+					alert('Нет подключения к интернету.');
+				}
+			}).done();
+		});
+	}
+
+	fetchData(url) {
+		return new Promise( (resolve, reject) =>{
+			let xhr = new XMLHttpRequest;
+			xhr.open('GET', url);
+			xhr.responseType = 'json';
+			xhr.timeout = 10000;
+			xhr.onload = ()=>resolve(xhr.response);
+			xhr.ontimeout = (e)=>reject(e);
+			xhr.send();
+		});
+	}
+
 	render() {
 		return (
-			<TouchableWithoutFeedback onPress={NavActions.tabbar}>
-				<View style={AppStyles.markup.containerSplash}>
+			<View style={AppStyles.markup.containerSplash}>
 
-					<View style={{position: 'absolute', top: 0, bottom: 0, left: 0, right: 0}}>
-						<Image source={require('../../assets/images/splash-background.jpg')} style={{flex: 1, width: null, height: null, resizeMode:'stretch'}} />
-					</View>
-
-					<Anim>
-						<Image source={Images.logo} style={{width:266, height: 34, marginBottom: 10, marginTop: 50}} />
-					</Anim>
-
-					<Text style={{color: '#fff'}}>
-						Карта репетиционных баз
-					</Text>
-
+				<View style={{position: 'absolute', top: 0, bottom: 0, left: 0, right: 0}}>
+					<Image source={require('../../assets/images/splash-background.jpg')} style={{flex: 1, width: null, height: null, resizeMode:'stretch'}} />
 				</View>
-			</TouchableWithoutFeedback>
+
+				<ActivityIndicator />
+
+				<Anim>
+					<Image source={Images.logo} style={{width:266, height: 34, marginBottom: 10, marginTop: 20}} />
+				</Anim>
+
+				<Text style={{color: '#fff'}}>
+					Карта репетиционных баз
+				</Text>
+
+			</View>
 		);
 	}
 }
+
+export default connect(
+	(store) => ({
+		state: store
+	}),
+	(dispatch) => ({
+		actions: bindActionCreators(actionCreators, dispatch)
+	})
+)(ScreenComponent);
