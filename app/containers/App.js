@@ -68,6 +68,7 @@ export default class App extends Component {
 									key='singleMarker'
 									component={Single}
 									title='Single base'
+									onBack={()=>NavActions.pop()}
 									back />
 							</Scene>
 
@@ -81,6 +82,7 @@ export default class App extends Component {
 									key='single'
 									component={Single}
 									title='База'
+									onBack={()=>NavActions.pop()}
 									back />
 							</Scene>
 
