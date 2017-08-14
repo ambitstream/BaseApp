@@ -62,11 +62,11 @@ const AppStyles = {
     sliderHeight: 200,
     starSize: 24,
     grayCard: {
-	  backgroundColor: '#efefef',
+	  backgroundColor: '#f9f9f9',
 	  borderTopWidth: 2,
-	  borderTopColor: '#ddd',
+	  borderTopColor: '#eee',
 	  borderBottomWidth: 2,
-	  borderBottomColor: '#ddd',
+	  borderBottomColor: '#eee',
     },
     descriptionRow: {
 	  flex: 1,
