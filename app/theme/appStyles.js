@@ -58,6 +58,55 @@ const AppStyles = {
     }
   },
   
+  // LIST
+  list: {
+	base: {
+	  flexDirection: 'row', 
+	  flex: 1, 
+	  height: 70, 
+	  borderBottomWidth: 1, 
+	  borderBottomColor: 'lightgrey', 
+	  marginTop: 5, 
+	  marginBottom: 5,
+	},
+	imageBlock: {
+	  width: 60, 
+	  height: 60, 
+	  backgroundColor: 'skyblue', 
+	  marginRight: 7
+	},
+	vipBase: {
+	  backgroundColor: 'yellow'
+	},
+	centerBlock: {
+		block: {
+		  flex: 2
+		},
+		title: {
+		  fontWeight: 'bold'
+		},
+		subtitle: {
+		  flex: 2, 
+		  fontSize: 11, 
+		  marginTop: 5
+		},
+	},
+	ratingBlock: {
+	  block: {
+		flexDirection: 'row'
+	  },
+	  commentsIcon: {
+		width:20, 
+		height:20, 
+		marginRight: 4
+	  },
+	  commentsCount: {
+		fontWeight: 'bold'
+	  }
+	}
+  },
+  
+  // DETAILS
   details: {
     sliderHeight: 200,
     starSize: 24,

@@ -11,18 +11,18 @@ export default class BaseItem extends Component {
 	render() {
 		return (
 			<TouchableOpacity
-				style={{flexDirection: 'row', flex: 1, height: 70, borderBottomWidth: 1, borderBottomColor: 'lightgrey', marginTop: 5, marginBottom: 5}}
+				style={[AppStyles.list.base, (this.props.is_vip ? AppStyles.list.vipBase : {})]}
 				onPress={()=>NavActions.single({ id: this.props.id })}>
 
-				<View style={{width: 60, height: 60, backgroundColor: 'skyblue', marginRight: 7}}>
+				<View style={AppStyles.list.imageBlock}>
 					<Image style={{flex: 1 }} source={{ uri: this.props.images[0] }}></Image>
 				</View>
 
-				<View style={{flex: 2}}>
-					<Text style={{fontWeight: 'bold'}}>
+				<View style={AppStyles.list.centerBlock.block}>
+					<Text style={AppStyles.list.centerBlock.title}>
 						{this.props.title}
 					</Text>
-					<Text style={{flex: 2, fontSize: 11, marginTop: 5}}>
+					<Text style={AppStyles.list.centerBlock.subtitle}>
 						{this.props.address}
 					</Text>
 				</View>
@@ -31,9 +31,9 @@ export default class BaseItem extends Component {
 				
 					<StarsRating rating={this.props.rating} starSize={12} />
 
-					<View style={{flexDirection: 'row'}}>
-						{this.props.comments_count ? <Image style={{width:20, height:20, marginRight: 4}} source={Images.comments} /> : <Text/> }
-						<Text style={{fontWeight: 'bold'}}>{this.props.comments_count}</Text>
+					<View style={AppStyles.list.ratingBlock.block}>
+						{this.props.comments_count ? <Image style={AppStyles.list.ratingBlock.commentsIcon} source={Images.comments} /> : <Text/> }
+						<Text style={AppStyles.list.commentsCount}>{this.props.comments_count}</Text>
 					</View>
 				</View>
 
