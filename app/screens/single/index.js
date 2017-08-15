@@ -34,14 +34,16 @@ class ScreenComponent extends Component {
 		return (
 			<View style={AppStyles.markup.container}>
 				<ScrollView>
-
-					<Swiper showsButtons={true} height={AppStyles.details.sliderHeight}>
+					
+					{this.state.images.length > 0 && 
+						<Swiper showsButtons={true} height={AppStyles.details.sliderHeight}>
 						{this.state.images.map((image_url, key) =>
 							<View key={'picture' + key}>
 								<Image source={{uri: image_url}} style={{width: width, height: AppStyles.details.sliderHeight}} />
 							</View>
 						)}
-					</Swiper>
+						</Swiper>
+					}
 
 					<View style={AppStyles.markup.commonPadding}>
 						<Text style={[AppStyles.typo.h1, {marginBottom: 5}]}>
