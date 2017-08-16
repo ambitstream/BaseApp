@@ -4,7 +4,7 @@ import { Platform } from 'react-native';
 
 const AppStyles = {
   markup: {
-		containerSplash: {
+      containerSplash: {
       flex: 1,
       backgroundColor: 'transparent',
       alignItems: 'center',

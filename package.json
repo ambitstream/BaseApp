@@ -12,6 +12,7 @@
     "prop-types": "^15.5.10",
     "react": "15.4.2",
     "react-native": "0.42.3",
+    "react-native-hyperlink": "0.0.10",
     "react-native-maps": "0.13.0",
     "react-native-router-flux": "3.37.0",
     "react-native-swiper": "^1.5.4",

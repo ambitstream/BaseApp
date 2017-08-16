@@ -5,6 +5,7 @@ import StarsRating from '../../components/StarsRating';
 import Reactotron from 'reactotron-react-native';
 import Swiper from 'react-native-swiper';
 import MapView from 'react-native-maps';
+import Hyperlink from 'react-native-hyperlink'
 
 //Styles
 import { AppStyles, Images } from '../../theme';
@@ -60,7 +61,9 @@ class ScreenComponent extends Component {
 
 						<View style={AppStyles.details.descriptionRow}>
 							<Text style={AppStyles.details.descriptionLeft}>Контакты: </Text>
-							<Text style={AppStyles.details.descriptionRight}>{this.state.data.contacts}</Text>
+							<Hyperlink linkDefault={true} linkStyle={AppStyles.typo.link}>
+								<Text style={AppStyles.details.descriptionRight}>{this.state.data.contacts}</Text>
+							</Hyperlink>
 						</View>
 
 						<View style={AppStyles.details.descriptionRow}>
@@ -69,9 +72,11 @@ class ScreenComponent extends Component {
 						</View>
 
 					</View>
-
+					
 					<View style={AppStyles.markup.commonPadding}>
-						<Text>{this.state.data.description}</Text>
+						<Hyperlink linkDefault={true} linkStyle={AppStyles.typo.link}>
+							<Text>{this.state.data.description}</Text>
+						</Hyperlink>
 					</View>
 
 					<View>
