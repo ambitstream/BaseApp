@@ -66,8 +66,9 @@ const AppStyles = {
 	  height: 70, 
 	  borderBottomWidth: 1, 
 	  borderBottomColor: 'lightgrey', 
-	  marginTop: 5, 
-	  marginBottom: 5,
+	  marginTop: 3, 
+	  marginBottom: 3,
+	  paddingTop: 5,
 	},
 	imageBlock: {
 	  width: 60, 
@@ -76,7 +77,7 @@ const AppStyles = {
 	  marginRight: 7
 	},
 	vipBase: {
-	  backgroundColor: 'yellow'
+	  backgroundColor: Colors.background.vip,
 	},
 	centerBlock: {
 		block: {

@@ -17,14 +17,13 @@ class ScreenComponent extends Component {
 		this.data = this.props.bases.data;
 
 		this.state = {
-			data: {},
+			data: {}
 		}
 	}
 
 	componentWillMount() {
 		this.setState({
 			data: this.data.filter(item => item.id === this.props.id)[0],
-			//images: this.data[this.props.id].images
 		});
 
 	}

@@ -6,7 +6,8 @@ const Colors = {
   },
   background: {
     primary: '#eeeeee',
-    light: '#dddddd'
+    light: '#dddddd',
+    vip: '#fbf7d7',
   }
 }
 
