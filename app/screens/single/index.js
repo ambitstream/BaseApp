@@ -18,14 +18,13 @@ class ScreenComponent extends Component {
 
 		this.state = {
 			data: {},
-			images: []
 		}
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		this.setState({
-			data: this.data[this.props.id],
-			images: this.data[this.props.id].images
+			data: this.data.filter(item => item.id === this.props.id)[0],
+			//images: this.data[this.props.id].images
 		});
 
 	}
@@ -35,9 +34,9 @@ class ScreenComponent extends Component {
 			<View style={AppStyles.markup.container}>
 				<ScrollView>
 					
-					{this.state.images.length > 0 && 
+					{this.state.data.images.length > 0 && 
 						<Swiper showsButtons={true} height={AppStyles.details.sliderHeight}>
-						{this.state.images.map((image_url, key) =>
+						{this.state.data.images.map((image_url, key) =>
 							<View key={'picture' + key}>
 								<Image source={{uri: image_url}} style={{width: width, height: AppStyles.details.sliderHeight}} />
 							</View>
@@ -50,7 +49,7 @@ class ScreenComponent extends Component {
 							{this.state.data.title}
 						</Text>
 
-						<StarsRating rating={this.data[this.props.id].rating} starSize={AppStyles.details.starSize} />
+						<StarsRating rating={this.state.data.rating} starSize={AppStyles.details.starSize} />
 					</View>
 
 					<View style={[AppStyles.markup.commonPadding, AppStyles.details.grayCard]}>
@@ -79,15 +78,15 @@ class ScreenComponent extends Component {
 					<View>
 						<MapView style={{width: width, height: 200}}
 							initialRegion={{
-							latitude: parseFloat(this.data[this.props.id].posY),
-							longitude: parseFloat(this.data[this.props.id].posX),
+							latitude: parseFloat(this.state.data.posY),
+							longitude: parseFloat(this.state.data.posX),
 							latitudeDelta: 0.0222,
 							longitudeDelta: 0.0061,
 							}}
 						>
 							<MapView.Marker
-								coordinate={{latitude: parseFloat(this.data[this.props.id].posY), longitude: parseFloat(this.data[this.props.id].posX)}}
-								title={this.data[this.props.id].title}
+								coordinate={{latitude: parseFloat(this.state.data.posY), longitude: parseFloat(this.state.data.posX)}}
+								title={this.state.data.title}
 							/>
 						</MapView>
 					</View>
