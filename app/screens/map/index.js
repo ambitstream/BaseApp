@@ -1,31 +1,27 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View, Dimensions } from 'react-native';
 import { Actions as NavActions } from 'react-native-router-flux';
+import MapView from 'react-native-maps';
 
 //Styles
 import { AppStyles } from '../../theme';
+const { width, height } = Dimensions.get('window');
 
 export default class ScreenComponent extends Component {
 
-  render() {
-    return (
-      <View style={AppStyles.markup.container}>
-        <View style={AppStyles.markup.commonPadding}>
-          <Text>This is list of markers:</Text>
-          <TouchableOpacity
-            onPress={()=>NavActions.singleMarker({ id: 14 })}>
-            <Text style={AppStyles.typo.link}>Marker #1</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={()=>NavActions.singleMarker({ id: 15 })}>
-            <Text style={AppStyles.typo.link}>Marker #2</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={()=>NavActions.singleMarker({ id: 16 })}>
-            <Text style={AppStyles.typo.link}>Marker #3</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    );
-  }
+	render() {
+		return (
+			<View style={AppStyles.markup.container}>
+				<MapView style={{width: width, height: height}}
+					initialRegion={{
+						latitude: 50.455203,
+						longitude: 30.511413,
+						latitudeDelta: 0.25,
+						longitudeDelta: 0.0061,
+					}}
+				>
+				</MapView>
+			</View>
+		);
+	}
 }
