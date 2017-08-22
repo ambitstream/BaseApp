@@ -11,6 +11,9 @@ import Hyperlink from 'react-native-hyperlink'
 import { AppStyles, Images } from '../../theme';
 const { width } = Dimensions.get('window');
 
+//Components
+import BaseComment from './comment';
+
 class ScreenComponent extends Component {
 
 	constructor(props) {
@@ -93,6 +96,12 @@ class ScreenComponent extends Component {
 								title={this.state.data.title}
 							/>
 						</MapView>
+					</View>
+					
+					<View style={AppStyles.markup.commonPadding}>
+						<BaseComment />
+						<BaseComment />
+						<BaseComment />
 					</View>
 
 				</ScrollView>
