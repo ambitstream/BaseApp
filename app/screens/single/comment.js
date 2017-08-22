@@ -10,7 +10,15 @@ export default class BaseComment extends Component {
 	render() {
 		return (
 			<View>
-				<Text>Comment</Text>
+				<View>
+					<Text>
+						{this.props.data.author}
+					</Text>
+					<View>
+						<StarsRating starSize={12} rating={this.props.data.rating} />
+					</View>
+				</View>
+				<Text>{this.props.data.text}</Text>
 			</View>
 		)
 	}

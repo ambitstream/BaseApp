@@ -99,9 +99,9 @@ class ScreenComponent extends Component {
 					</View>
 					
 					<View style={AppStyles.markup.commonPadding}>
-						<BaseComment />
-						<BaseComment />
-						<BaseComment />
+						<BaseComment data={{text: "Hello, my comment", author: "Виктор", rating: 3.7}} />
+						<BaseComment data={{text: "Seconf comment", author: "Александр", rating: 4.7}} />
+						<BaseComment data={{text: "А тут плохой отзыв", author: "Константин", rating: 2}} />
 					</View>
 
 				</ScrollView>
