@@ -131,6 +131,13 @@ const AppStyles = {
     descriptionRight: {
 	  flex: 1,
     },
+  },
+  
+  // COMMENT
+  comment: {
+    container: {
+	  
+    }
   }
 
 }

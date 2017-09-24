@@ -55,10 +55,10 @@ class ScreenComponent extends Component {
 			AsyncStorage.getItem('bases').then( localData => {
 				if (localData) {
 					storeBasesData(JSON.parse(localData));
-					alert('Нет подключения к интернету, используем закешированные данные!');
+					alert('Нет подключения к серверу, используем закешированные данные.');
 					NavActions.tabbar();
 				} else {
-					alert('Нет подключения к интернету.');
+					alert('Нет подключения к серверу. Попробуйте позже.');
 				}
 			}).done();
 		});
@@ -69,7 +69,7 @@ class ScreenComponent extends Component {
 			let xhr = new XMLHttpRequest;
 			xhr.open('GET', url);
 			xhr.responseType = 'json';
-			xhr.timeout = 10000;
+			xhr.timeout = 10000; // 10 sec
 			xhr.onload = ()=>resolve(xhr.response);
 			xhr.ontimeout = (e)=>reject(e);
 			xhr.send();
