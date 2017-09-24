@@ -5,3 +5,9 @@
 ## Technologies:
 - [React-native](https://facebook.github.io/react-native/)
 - [React redux](https://github.com/reactjs/react-redux)
+
+### Run
+```
+npm i -g react-native-cli
+react-native run-ios
+```
