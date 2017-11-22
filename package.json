@@ -9,13 +9,13 @@
   },
   "dependencies": {
     "apisauce": "^0.14.0",
-    "prop-types": "^15.5.10",
+    "prop-types": "^15.6.0",
     "react": "15.4.2",
     "react-native": "0.42.3",
     "react-native-hyperlink": "0.0.10",
     "react-native-maps": "0.13.0",
     "react-native-router-flux": "3.37.0",
-    "react-native-swiper": "^1.5.12",
+    "react-native-swiper": "^1.5.13",
     "react-redux": "^5.0.5",
     "redux": "^3.7.1",
     "redux-thunk": "^2.2.0"
@@ -25,9 +25,9 @@
     "babel-preset-react-native": "1.9.1",
     "jest": "19.0.2",
     "react-test-renderer": "15.4.2",
-    "reactotron-apisauce": "^1.12.0",
-    "reactotron-react-native": "^1.12.3",
-    "reactotron-redux": "^1.12.0"
+    "reactotron-apisauce": "^1.13.0",
+    "reactotron-react-native": "^1.13.2",
+    "reactotron-redux": "^1.13.0"
   },
   "jest": {
     "preset": "react-native"
