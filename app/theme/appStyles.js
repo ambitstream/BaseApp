@@ -58,6 +58,19 @@ const AppStyles = {
     }
   },
   
+  // MAP
+  mainMap: {
+    hintPosition: -200,
+    hintContainer: {
+      flex: 1,
+    },
+    hintBlock: {
+      height: 200,
+      padding: 10,
+      backgroundColor: 'white',
+    }
+  },
+  
   // LIST
   list: {
 	base: {
