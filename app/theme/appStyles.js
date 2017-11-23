@@ -60,15 +60,16 @@ const AppStyles = {
   
   // MAP
   mainMap: {
-    hintPosition: -200,
+    hintPosition: -190,
     hintContainer: {
       flex: 1,
-    },
-    hintBlock: {
       height: 200,
-      padding: 10,
       backgroundColor: 'white',
-    }
+      borderTopColor: 'lightgrey', 
+      borderTopWidth: 1,
+      paddingLeft: 5,
+      paddingRight: 5,
+    },
   },
   
   // LIST

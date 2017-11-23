@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { AppStyles, Images } from '../../theme';
 
 //Components
-import BaseItem from './item';
+import BaseItem from '../../components/BaseItem';
 
 class ScreenComponent extends Component {
 

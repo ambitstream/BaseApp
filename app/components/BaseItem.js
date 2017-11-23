@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { Actions as NavActions } from 'react-native-router-flux';
-import StarsRating from '../../components/StarsRating';
+import StarsRating from './StarsRating';
 
 //Styles
-import { AppStyles, Images, Metrics } from '../../theme';
+import { AppStyles, Images, Metrics } from '../theme';
 
 export default class BaseItem extends Component {
 

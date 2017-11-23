@@ -4,6 +4,9 @@ import { Image, Text, View } from 'react-native';
 //Styles
 import { Colors, Images, AppStyles } from '../../theme';
 
+// components
+import BaseItem from '../../components/BaseItem';
+
 export default class MapHint extends Component {
 	
 	constructor(props) {
@@ -17,9 +20,9 @@ export default class MapHint extends Component {
     			{marginTop: this.props.visible ? AppStyles.mainMap.hintPosition : 0}, 
     			AppStyles.mainMap.hintContainer
             ]}>
-			    <View style={AppStyles.mainMap.hintBlock}>
-    				<Text>{this.props.title}</Text>
-				</View>
+			    
+                <BaseItem {...this.props.data} />
+
 			</View>
 		)
 	}

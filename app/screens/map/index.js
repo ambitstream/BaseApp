@@ -18,7 +18,8 @@ class ScreenComponent extends Component {
 		this.data = this.props.bases.data;
 		
 		this.state = {
-    	    isHintVisible: false,	
+    	    isHintVisible: false,
+    	    selectedBase: this.data[0],
 		};
 	}
 	
@@ -28,8 +29,7 @@ class ScreenComponent extends Component {
     	
     	this.setState({
         	isHintVisible: true,
-        	hintTitle: base.title,
-        	hintDescription: base.address,
+        	selectedBase: base,
         });
 	}
 
@@ -51,14 +51,13 @@ class ScreenComponent extends Component {
 						    style={{width: 30, height: 60}}
 						    onSelect={this.showHint.bind(this, base.id)}
 							coordinate={{latitude: parseFloat(base.posY), longitude: parseFloat(base.posX)}}
-							title={base.title}
 							key={'base_marker_' + base.id}
 						/>
 					))}
 				
 				</MapView>
 				
-				<MapHint title={this.state.hintTitle} description={this.state.hintDescription} visible={this.state.isHintVisible} />
+				<MapHint data={this.state.selectedBase} visible={this.state.isHintVisible} />				
 				
 			</View>
 		);
