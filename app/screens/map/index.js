@@ -8,7 +8,7 @@ import MapView from 'react-native-maps';
 import MapHint from './MapHint';
 
 //Styles
-import { AppStyles } from '../../theme';
+import { AppStyles, Images } from '../../theme';
 const { width, height } = Dimensions.get('window');
 
 class ScreenComponent extends Component {
@@ -32,6 +32,19 @@ class ScreenComponent extends Component {
         	selectedBase: base,
         });
 	}
+	
+	getMarkerImage(marker_type) {
+    	switch (marker_type) {
+        	case 'vip':
+        	    return Images.icons.marker_vip;
+        	    break;
+            case 'expired':
+        	    return Images.icons.marker_grey;
+        	    break;
+            default:
+                return Images.icons.marker_default;
+    	}
+	}
 
 	render() {
     	
@@ -49,6 +62,7 @@ class ScreenComponent extends Component {
 					{this.data.map(base => (
 						<MapView.Marker
 						    style={{width: 30, height: 60}}
+						    image={this.getMarkerImage(base.marker_type)}
 						    onSelect={this.showHint.bind(this, base.id)}
 							coordinate={{latitude: parseFloat(base.posY), longitude: parseFloat(base.posX)}}
 							key={'base_marker_' + base.id}
