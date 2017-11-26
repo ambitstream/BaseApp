@@ -61,7 +61,8 @@ class ScreenComponent extends Component {
 				
 					{this.data.map(base => (
 						<MapView.Marker
-						    style={{width: 30, height: 60}}
+						    style={{}}
+						    anchor={{x: 0.5, y: 1}}
 						    image={this.getMarkerImage(base.marker_type)}
 						    onSelect={this.showHint.bind(this, base.id)}
 							coordinate={{latitude: parseFloat(base.posY), longitude: parseFloat(base.posX)}}
