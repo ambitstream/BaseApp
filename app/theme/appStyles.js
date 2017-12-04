@@ -40,8 +40,8 @@ const AppStyles = {
       backgroundColor: Colors.background.light,
     },
     item: {
-	  flex:1, 
-	  flexDirection: 'column', 
+	  flex:1,
+	  flexDirection: 'column',
 	  alignItems: 'center',
 	},
     icon: {
@@ -57,7 +57,7 @@ const AppStyles = {
       marginVertical: Metrics.baseMargin,
     }
   },
-  
+
   // MAP
   mainMap: {
     hintPosition: -190,
@@ -65,29 +65,34 @@ const AppStyles = {
       flex: 1,
       height: 200,
       backgroundColor: 'white',
-      borderTopColor: 'lightgrey', 
+      borderTopColor: 'lightgrey',
       borderTopWidth: 1,
       paddingLeft: 5,
       paddingRight: 5,
     },
+    markerOverlay: {
+        left: 5,
+        width: 21,
+        height: 32,
+    }
   },
-  
+
   // LIST
   list: {
 	base: {
-	  flexDirection: 'row', 
-	  flex: 1, 
-	  height: 70, 
-	  borderBottomWidth: 1, 
-	  borderBottomColor: 'lightgrey', 
-	  marginTop: 3, 
+	  flexDirection: 'row',
+	  flex: 1,
+	  height: 70,
+	  borderBottomWidth: 1,
+	  borderBottomColor: 'lightgrey',
+	  marginTop: 3,
 	  marginBottom: 3,
 	  paddingTop: 5,
 	},
 	imageBlock: {
-	  width: 60, 
-	  height: 60, 
-	  backgroundColor: 'skyblue', 
+	  width: 60,
+	  height: 60,
+	  backgroundColor: 'skyblue',
 	  marginRight: 7
 	},
 	vipBase: {
@@ -101,8 +106,8 @@ const AppStyles = {
 		  fontWeight: 'bold'
 		},
 		subtitle: {
-		  flex: 2, 
-		  fontSize: 11, 
+		  flex: 2,
+		  fontSize: 11,
 		  marginTop: 5
 		},
 	},
@@ -111,8 +116,8 @@ const AppStyles = {
 		flexDirection: 'row'
 	  },
 	  commentsIcon: {
-		width:20, 
-		height:20, 
+		width:20,
+		height:20,
 		marginRight: 4
 	  },
 	  commentsCount: {
@@ -120,7 +125,7 @@ const AppStyles = {
 	  }
 	}
   },
-  
+
   // DETAILS
   details: {
     sliderHeight: 200,
@@ -146,11 +151,11 @@ const AppStyles = {
 	  flex: 1,
     },
   },
-  
+
   // COMMENT
   comment: {
     container: {
-	  
+
     }
   }
 

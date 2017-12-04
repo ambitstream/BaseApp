@@ -16,23 +16,23 @@ class ScreenComponent extends Component {
 	constructor(props) {
 		super(props);
 		this.data = this.props.bases.data;
-		
+
 		this.state = {
     	    isHintVisible: false,
     	    selectedBase: this.data[0],
 		};
 	}
-	
+
 	showHint(id) {
-    	
+
     	const base = this.data.find(el => el.id === id);
-    	
+
     	this.setState({
         	isHintVisible: true,
         	selectedBase: base,
         });
 	}
-	
+
 	getMarkerImage(marker_type) {
     	switch (marker_type) {
         	case 'vip':
@@ -47,7 +47,7 @@ class ScreenComponent extends Component {
 	}
 
 	render() {
-    	
+
 		return (
 			<View style={AppStyles.markup.container}>
 				<MapView style={{width: width, height: height}}
@@ -58,22 +58,27 @@ class ScreenComponent extends Component {
 						longitudeDelta: 0.0061,
 					}}
 				>
-				
+
 					{this.data.map(base => (
-						<MapView.Marker
-						    style={{}}
-						    anchor={{x: 0.5, y: 1}}
-						    image={this.getMarkerImage(base.marker_type)}
-						    onSelect={this.showHint.bind(this, base.id)}
-							coordinate={{latitude: parseFloat(base.posY), longitude: parseFloat(base.posX)}}
-							key={'base_marker_' + base.id}
-						/>
+
+
+    						<MapView.Marker
+                                key={'base_marker_' + base.id}
+    						    style={{}}
+    						    anchor={{x: 0.5, y: 1}}
+    						    image={this.getMarkerImage(base.marker_type)}
+    							coordinate={{latitude: parseFloat(base.posY), longitude: parseFloat(base.posX)}}
+    						>
+                            <TouchableOpacity
+                                style={AppStyles.mainMap.markerOverlay}
+                                onPress={this.showHint.bind(this, base.id)} />
+                            </MapView.Marker>
 					))}
-				
+
 				</MapView>
-				
-				<MapHint data={this.state.selectedBase} visible={this.state.isHintVisible} />				
-				
+
+				<MapHint data={this.state.selectedBase} visible={this.state.isHintVisible} />
+
 			</View>
 		);
 	}
