@@ -1,1 +1,2 @@
 export const BASES_UPDATED = 'BASES_UPDATED';
+export const COMMENTS_UPDATED = 'COMMENTS_UPDATED';
