@@ -19,16 +19,16 @@ export default class BaseItem extends Component {
 				</View>
 
 				<View style={AppStyles.list.centerBlock.block}>
-					<Text style={AppStyles.list.centerBlock.title}>
+					<Text style={AppStyles.list.centerBlock.title} numberOfLines={2}>
 						{this.props.title}
 					</Text>
 					<Text style={AppStyles.list.centerBlock.subtitle}>
 						{this.props.address}
 					</Text>
 				</View>
-				
+
 				<View style={{width:70, height:60}}>
-				
+
 					<StarsRating rating={this.props.rating} starSize={12} />
 
 					<View style={AppStyles.list.ratingBlock.block}>
