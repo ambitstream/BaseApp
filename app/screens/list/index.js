@@ -35,9 +35,15 @@ class ScreenComponent extends Component {
 		return (
 			<View style={AppStyles.markup.container}>
 
-				<View style={{flexDirection: 'row', paddingTop: 6, paddingBottom: 6, borderBottomColor: '#eee', borderBottomWidth: 2}}>
-					<Image source={Images.icons.search} style={{width: 18, height: 18, marginLeft: 10, marginRight: 7}} />
-					<TextInput style={{flex:1, height: 20, fontSize: 14}} onChangeText={this.searchChange.bind(this)} placeholder="Поиск..."/>
+				<View style={AppStyles.searchBar.container}>
+					<View style={AppStyles.searchBar.inputWrapper}>
+						<Image source={Images.icons.search} style={AppStyles.searchBar.searchIcon} />
+						<TextInput
+							style={AppStyles.searchBar.input}
+							onChangeText={this.searchChange.bind(this)}
+							placeholder="Поиск..." />
+						<Image source={Images.icons.close} style={AppStyles.searchBar.closeIcon} />
+					</View>
 				</View>
 
 				{this.props.isFavorites

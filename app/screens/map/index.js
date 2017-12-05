@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity, View, Dimensions } from 'react-native';
+import { Text, TouchableOpacity, TouchableWithoutFeedback, View, Dimensions } from 'react-native';
 import { Actions as NavActions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import MapView from 'react-native-maps';
@@ -69,9 +69,11 @@ class ScreenComponent extends Component {
     						    image={this.getMarkerImage(base.marker_type)}
     							coordinate={{latitude: parseFloat(base.posY), longitude: parseFloat(base.posX)}}
     						>
-                            <TouchableOpacity
+                            <TouchableWithoutFeedback
                                 style={AppStyles.mainMap.markerOverlay}
-                                onPress={this.showHint.bind(this, base.id)} />
+                                onPress={this.showHint.bind(this, base.id)}>
+								<View /> 
+							</TouchableWithoutFeedback>
                             </MapView.Marker>
 					))}
 
