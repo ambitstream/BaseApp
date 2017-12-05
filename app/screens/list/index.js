@@ -54,6 +54,7 @@ class ScreenComponent extends Component {
 							style={AppStyles.markup.commonPadding}
 							dataSource={this.state.dataSource}
 							renderRow={(rowData) => <BaseItem {...this.data[rowData]} /> }
+							enableEmptySections={true}
 						/>
 				}
 			</View>
