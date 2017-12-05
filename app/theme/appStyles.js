@@ -160,6 +160,30 @@ const AppStyles = {
       borderRadius: 5,
       padding: 10,
       marginTop: 10,
+    },
+    headerBlock: {
+      flex: 1, 
+      flexDirection: 'row'
+    },
+    author: {
+      flex: 1
+    },
+    rating: {
+      flex: 1, 
+      flexDirection: 'row', 
+      justifyContent: 'flex-end'
+    },
+    band: {
+      fontWeight: 'bold', 
+      marginBottom: 10
+    },
+    date: {
+      flex: 1, 
+      flexDirection: 'row', 
+      justifyContent: 'flex-end'
+    },
+    dateFont: {
+      fontSize: 11
     }
   }
 

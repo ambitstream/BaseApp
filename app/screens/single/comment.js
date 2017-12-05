@@ -10,13 +10,13 @@ export default class BaseComment extends Component {
 	render() {
 		return (
 			<View style={AppStyles.comment.container}>
-				<View style={{flex: 1, flexDirection: 'row'}}>
+				<View style={AppStyles.comment.headerBlock}>
 					
-					<Text style={{flex: 1}}>
+					<Text style={AppStyles.comment.author}>
 						{this.props.data.author}
 					</Text>
 					
-					<View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
+					<View style={AppStyles.comment.rating}>
 					    <View >
 						    <StarsRating starSize={12} rating={this.props.data.rating} />
 						</View>
@@ -24,7 +24,7 @@ export default class BaseComment extends Component {
 					
 				</View>
 				
-				<Text style={{fontWeight: 'bold', marginBottom: 10}}>
+				<Text style={AppStyles.comment.band}>
 					{this.props.data.band_name}
 				</Text>
 				
@@ -32,8 +32,8 @@ export default class BaseComment extends Component {
     				{this.props.data.text}
                 </Text>
                 
-                <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end'}}>
-    				<Text style={{fontSize: 11}}>
+                <View style={AppStyles.comment.date}>
+    				<Text style={AppStyles.comment.dateFont}>
     				    {this.props.data.date}
     				</Text>
 				</View>
