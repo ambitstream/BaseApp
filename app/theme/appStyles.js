@@ -155,7 +155,11 @@ const AppStyles = {
   // COMMENT
   comment: {
     container: {
-
+      borderColor: '#eee',
+      borderWidth: 1,
+      borderRadius: 5,
+      padding: 10,
+      marginTop: 10,
     }
   }
 

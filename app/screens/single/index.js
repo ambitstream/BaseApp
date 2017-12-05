@@ -132,7 +132,7 @@ class ScreenComponent extends Component {
 						{ comments && comments.length ? comments.map( (item, i) =>
 							<BaseComment
 								key={'comment_' + item.id + i}
-								data={{text: item.text, author: item.name, rating: item.rating}} />
+								data={{text: item.text, author: item.name, rating: item.rating, date: item.date, band_name: item.band_name}} />
 						) : null }
 					</View>
 
