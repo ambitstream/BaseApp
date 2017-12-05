@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ListView, TextInput, Image } from 'react-native';
+import { Text, View, ListView, TextInput, Image, TouchableOpacity } from 'react-native';
 import Reactotron from 'reactotron-react-native';
 import { connect } from 'react-redux';
 
@@ -27,8 +27,16 @@ class ScreenComponent extends Component {
 			text,
 			dataSource: this.ds.cloneWithRows(Object.keys(this.data).filter( v => {
 				return this.data[v].title.indexOf(text) !== -1 || this.data[v].address.indexOf(text) !== -1
-			}))
+			})),
+			searchText: text,
 		});
+	}
+
+	clearSearchInput() {
+		this.setState({
+			searchText: '',
+		});
+		this.searchChange('');
 	}
 
 	render() {
@@ -41,8 +49,11 @@ class ScreenComponent extends Component {
 						<TextInput
 							style={AppStyles.searchBar.input}
 							onChangeText={this.searchChange.bind(this)}
+							value={this.state.searchText}
 							placeholder="Поиск..." />
-						<Image source={Images.icons.close} style={AppStyles.searchBar.closeIcon} />
+						<TouchableOpacity onPress={this.clearSearchInput.bind(this)}>
+							<Image source={Images.icons.close} style={AppStyles.searchBar.closeIcon} />
+						</TouchableOpacity>
 					</View>
 				</View>
 
