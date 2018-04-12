@@ -1072,7 +1072,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kievbase.react.app.bundle;
+				PRODUCT_BUNDLE_IDENTIFIER = kievbase.app;
 				PRODUCT_NAME = KievBase;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1099,7 +1099,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kievbase.react.app.bundle;
+				PRODUCT_BUNDLE_IDENTIFIER = kievbase.app;
 				PRODUCT_NAME = KievBase;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
