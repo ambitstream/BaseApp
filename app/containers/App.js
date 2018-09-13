@@ -67,7 +67,7 @@ export default class App extends Component {
 								<Scene
 									key='singleMarker'
 									component={Single}
-									title='Single base'
+									title='База'
 									onBack={()=>NavActions.pop()}
 									back />
 							</Scene>

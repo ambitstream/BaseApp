@@ -7,12 +7,13 @@ import StarsRating from './StarsRating';
 import { AppStyles, Images, Metrics } from '../theme';
 
 export default class BaseItem extends Component {
-
 	render() {
+		const navKey = (this.props.source == 'map') ? 'singleMarker' : 'single';
+
 		return (
 			<TouchableOpacity
 				style={[AppStyles.list.base, (this.props.is_vip ? AppStyles.list.vipBase : {})]}
-				onPress={()=>NavActions.single({ id: this.props.id })}>
+				onPress={()=>NavActions[navKey]({ id: this.props.id })}>
 
 				<View style={AppStyles.list.imageBlock}>
 					<Image style={{flex: 1 }} source={{ uri: this.props.images[0] }}></Image>

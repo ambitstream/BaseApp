@@ -11,14 +11,14 @@ const propTypes = {
 };
 
 const TabIcon = (props) => {
-  let color = props.selected ? Colors.basic.extra : Colors.basic.primary;
+  let fontWeight = props.selected ? '500' : '300';
   return (
-	  
+
   	<View style={AppStyles.tabBar.item}>
   	  <Image source={Images.icons[props.iconName]} style={AppStyles.tabBar.icon} />
-  	  <Text style={{color: color, fontSize: AppStyles.tabBar.fontSize}}>{props.title}</Text>
+  	  <Text style={{fontWeight, fontSize: AppStyles.tabBar.fontSize}}>{props.title}</Text>
     </View>
-    
+
   )
 };
 

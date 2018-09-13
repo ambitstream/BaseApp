@@ -63,18 +63,17 @@ class ScreenComponent extends Component {
 
 
     						<MapView.Marker
-                                key={'base_marker_' + base.id}
-    						    style={{}}
-    						    anchor={{x: 0.5, y: 1}}
-    						    image={this.getMarkerImage(base.marker_type)}
+                  key={'base_marker_' + base.id}
+  						    anchor={{x: 0.5, y: 1}}
+  						    image={this.getMarkerImage(base.marker_type)}
     							coordinate={{latitude: parseFloat(base.posY), longitude: parseFloat(base.posX)}}
     						>
-                            <TouchableWithoutFeedback
-                                style={AppStyles.mainMap.markerOverlay}
-                                onPress={this.showHint.bind(this, base.id)}>
-								<View /> 
-							</TouchableWithoutFeedback>
-                            </MapView.Marker>
+	                <TouchableOpacity
+	                    style={AppStyles.mainMap.markerOverlay}
+	                    onPress={this.showHint.bind(this, base.id)}>
+										<View />
+									</TouchableOpacity>
+                </MapView.Marker>
 					))}
 
 				</MapView>

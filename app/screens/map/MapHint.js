@@ -8,22 +8,22 @@ import { Colors, Images, AppStyles } from '../../theme';
 import BaseItem from '../../components/BaseItem';
 
 export default class MapHint extends Component {
-	
+
 	constructor(props) {
-		super(props);		
+		super(props);
 	}
-	
+
 	render() {
-		
+
 		return (
 			<View style={[
-    			{marginTop: this.props.visible ? AppStyles.mainMap.hintPosition : 0}, 
+    			{marginTop: this.props.visible ? AppStyles.mainMap.hintPosition : 0},
     			AppStyles.mainMap.hintContainer
             ]}>
-			    
-                <BaseItem {...this.props.data} />
+
+                <BaseItem {...this.props.data} source='map' />
 
 			</View>
 		)
 	}
-} 
+}

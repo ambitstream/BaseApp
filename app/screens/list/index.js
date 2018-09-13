@@ -64,7 +64,7 @@ class ScreenComponent extends Component {
 					: <ListView
 							style={AppStyles.markup.commonPadding}
 							dataSource={this.state.dataSource}
-							renderRow={(rowData) => <BaseItem {...this.data[rowData]} /> }
+							renderRow={(rowData) => <BaseItem {...this.data[rowData]} source='list' /> }
 							enableEmptySections={true}
 						/>
 				}
