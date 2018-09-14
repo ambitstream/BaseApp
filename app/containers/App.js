@@ -25,10 +25,12 @@ import '../config/reactotron';
 
 let enhancers = [];
 const reducer = combineReducers(reducers);
-const reactotronEnhancer = createReactotronStoreEnhancer(console.tron, {
-	ignore: [],
-});
-enhancers.push(reactotronEnhancer);
+if (__DEV__) {
+	const reactotronEnhancer = createReactotronStoreEnhancer(console.tron, {
+		ignore: [],
+	});
+	enhancers.push(reactotronEnhancer);
+}
 const store = createStore(reducer, {}, compose(...enhancers));
 
 // Disable back button config
@@ -39,6 +41,7 @@ const disableBackButton = {
 
 export default class App extends Component {
 	render() {
+		// return null;
 		return (
 			<Provider store={store}>
 				<RouterWithRedux>
