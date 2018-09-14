@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity, TouchableWithoutFeedback, View, Dimensions } from 'react-native';
+import { Text, TouchableOpacity, TouchableWithoutFeedback, View, Dimensions, Image } from 'react-native';
 import { Actions as NavActions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import MapView from 'react-native-maps';
@@ -59,22 +59,22 @@ class ScreenComponent extends Component {
 					}}
 				>
 
-					{this.data.map(base => (
+				{this.data.map(base => (
+					<MapView.Marker
+						key={'base_marker_' + base.id}
+						anchor={{x: 0.5, y: 1}}
+						coordinate={{latitude: parseFloat(base.posY), longitude: parseFloat(base.posX)}}
+					>
+						<TouchableOpacity
+							activeOpacity={0.9}
+							style={AppStyles.mainMap.markerOverlay}
+							onPress={this.showHint.bind(this, base.id)}>
 
+							<Image source={this.getMarkerImage(base.marker_type)} style={AppStyles.mainMap.markerIcon} />
 
-    						<MapView.Marker
-                  key={'base_marker_' + base.id}
-  						    anchor={{x: 0.5, y: 1}}
-  						    image={this.getMarkerImage(base.marker_type)}
-    							coordinate={{latitude: parseFloat(base.posY), longitude: parseFloat(base.posX)}}
-    						>
-	                <TouchableOpacity
-	                    style={AppStyles.mainMap.markerOverlay}
-	                    onPress={this.showHint.bind(this, base.id)}>
-										<View />
-									</TouchableOpacity>
-                </MapView.Marker>
-					))}
+						</TouchableOpacity>
+					</MapView.Marker>
+				))}
 
 				</MapView>
 

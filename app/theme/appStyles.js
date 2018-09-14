@@ -71,9 +71,14 @@ const AppStyles = {
       paddingRight: 5,
     },
     markerOverlay: {
-        left: 5,
-        width: 21,
-        height: 32,
+      width: 21,
+      height: 32,
+    },
+    markerIcon: {
+      width: 32,
+      height: 32,
+      left: -6,
+      position: 'absolute',
     }
   },
 
