@@ -26,7 +26,8 @@ class ScreenComponent extends Component {
 		this.setState({
 			text,
 			dataSource: this.ds.cloneWithRows(Object.keys(this.data).filter( v => {
-				return this.data[v].title.indexOf(text) !== -1 || this.data[v].address.indexOf(text) !== -1
+                text = text.toLowerCase();
+				return this.data[v].title.toLowerCase().indexOf(text) !== -1 || this.data[v].address.toLowerCase().indexOf(text) !== -1
 			})),
 			searchText: text,
 		});
