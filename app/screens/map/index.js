@@ -27,10 +27,21 @@ class ScreenComponent extends Component {
 
     	const base = this.data.find(el => el.id === id);
 
-    	this.setState({
-        	isHintVisible: true,
-        	selectedBase: base,
+        // reset preview image
+        this.setState({
+            selectedBase: {
+                images: [],
+            },
         });
+
+        // set small timeout to let preview image reset first, then load new data from url
+        setTimeout(() => {
+            this.setState({
+            	isHintVisible: true,
+            	selectedBase: base,
+            });
+        }, 100);
+
 	}
 
 	getMarkerImage(marker_type) {
