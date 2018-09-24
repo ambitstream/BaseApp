@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { Text, View, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import { Actions as NavActions } from 'react-native-router-flux';
 import StarsRating from './StarsRating';
 
@@ -7,6 +7,25 @@ import StarsRating from './StarsRating';
 import { AppStyles, Images, Metrics } from '../theme';
 
 export default class BaseItem extends Component {
+
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			imageLoading: false
+		}
+	}
+	onLoadStart() {
+		this.setState({
+			imageLoading: true
+		});
+	}
+	onLoadEnd() {
+		this.setState({
+			imageLoading: false
+		});
+	}
+
 	render() {
 		const navKey = (this.props.source == 'map') ? 'singleMarker' : 'single';
 
@@ -16,7 +35,14 @@ export default class BaseItem extends Component {
 				onPress={()=>NavActions[navKey]({ id: this.props.id })}>
 
 				<View style={AppStyles.list.imageBlock}>
-					<Image style={{flex: 1 }} source={{ uri: this.props.images[0] }}></Image>
+					<Image
+						onLoadStart={ this.onLoadStart.bind(this) }
+						onLoadEnd={ this.onLoadEnd.bind(this) }
+						style={{flex: 1 }}
+						source={{ uri: this.props.images[0] }} />
+					{ this.state.imageLoading ?
+						<ActivityIndicator style={ AppStyles.list.imageLoader } color='black' />
+					: null }
 				</View>
 
 				<View style={AppStyles.list.centerBlock.block}>

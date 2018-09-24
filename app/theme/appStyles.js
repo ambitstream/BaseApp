@@ -135,6 +135,13 @@ const AppStyles = {
 	  backgroundColor: 'skyblue',
 	  marginRight: 7
 	},
+  imageLoader: {
+    position: 'absolute',
+    width: 60,
+	  height: 60,
+    backgroundColor: 'skyblue',
+    top: 0, left: 0, right: 0, bottom: 0,
+  },
 	vipBase: {
 	  backgroundColor: Colors.background.vip,
 	},
